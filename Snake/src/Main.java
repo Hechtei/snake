@@ -1,9 +1,7 @@
-
 public class Main {
-	
 
-	public static void main(String[] args) {
-		 new Spielfeld();
-		 
-	}
+  public static void main(String[] args) {
+    new Spielfeld();
+
+  }
 }
