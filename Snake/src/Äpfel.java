@@ -25,7 +25,6 @@ public class Äpfel {
   public static void gegessenWerden() {
 
     Spielfeld.zf.fuelleKreis(xposition, yposition, DURCHMESSER, "weiss");
-
     spawn();
 
   }

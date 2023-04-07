@@ -1,6 +1,6 @@
 import javax.imageio.plugins.tiff.ExifGPSTagSet;
 
-public class Schlange {
+public class Schlange extends  ZEICHENFENSTER {
 
   final int SCHRITTDURCHMESSER = 1;
   final int SCHRITTGESCHWINDIGKEIT = 6;
@@ -27,16 +27,16 @@ public class Schlange {
         && xposition + DURCHMESSER * 2 < Spielfeld.breite) {
       Spielfeld.zf.fuelleKreis(xposition, yposition, DURCHMESSER, "weiss");
       switch (Spielfeld.zf.richtung) {
-        case "rechts":
+        case rechts :
           xposition += SCHRITTDURCHMESSER;
           break;
-        case "links":
+        case links:
           xposition -= SCHRITTDURCHMESSER;
           break;
-        case "hoch":
+        case hoch:
           yposition -= SCHRITTDURCHMESSER;
           break;
-        case "runter":
+        case runter:
           yposition += SCHRITTDURCHMESSER;
           break;
         default:
@@ -53,24 +53,24 @@ public class Schlange {
   }
 
   public void fressenSuchen() {
-    if (Spielfeld.zf.richtung == "links") {
+    if (Spielfeld.zf.richtung == links) {
       if (Äpfel.xposition + Äpfel.DURCHMESSER == xposition && Math.abs(Äpfel.yposition - yposition)
           < (DURCHMESSER * 2 - Äpfel.DURCHMESSER) + APFELHITBOX) {
         Äpfel.gegessenWerden();
       }
 
-    } else if (Spielfeld.zf.richtung == "rechts") {
+    } else if (Spielfeld.zf.richtung == rechts) {
       if (Math.abs(Äpfel.xposition - xposition) < (DURCHMESSER * 2)
           && Math.abs(Äpfel.yposition - yposition)
           < (DURCHMESSER * 2 - Äpfel.DURCHMESSER) + APFELHITBOX) {
         Äpfel.gegessenWerden();
       }
-    } else if (Spielfeld.zf.richtung == "runter") {
+    } else if (Spielfeld.zf.richtung == runter) {
       if (Math.abs(Äpfel.xposition - xposition) < (DURCHMESSER * 2)
           && Math.abs(Äpfel.yposition - yposition) < (DURCHMESSER * 2)) {
         Äpfel.gegessenWerden();
       }
-    } else if (Spielfeld.zf.richtung == "hoch") {
+    } else if (Spielfeld.zf.richtung == hoch) {
       if (Math.abs(Äpfel.yposition - yposition) < Äpfel.DURCHMESSER
           && Math.abs(Äpfel.xposition - xposition) < (DURCHMESSER * 2)) {
         Äpfel.gegessenWerden();

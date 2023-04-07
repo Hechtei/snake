@@ -17,6 +17,15 @@ public class ZEICHENFENSTER {
 
   private static ZEICHENFENSTER singleton;
   public String richtung = "keine";
+  
+  public final String rechts = "rechts";
+  
+  public final String links = "links";
+  
+  public final String hoch = "hoch";
+  
+  public final String runter ="runter";
+  
   public JFrame frame;
   private CanvasPane canvas;
   private JPanel steuerungOst, steuerungSued;
@@ -81,17 +90,21 @@ public class ZEICHENFENSTER {
       public void keyReleased(KeyEvent e) {
 
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            //	System.out.println("rechts");
-          richtung = "rechts";
+          if(richtung != links) {
+            richtung = rechts;
+          }
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-          //System.out.println("links");
-          richtung = "links";
+          if(richtung != rechts){
+          richtung = links;
+          }
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-          //System.out.println("hoch");
-          richtung = "hoch";
+          if(richtung!= runter){
+          richtung = hoch;
+          }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            //	System.out.println("runter");
-          richtung = "runter";
+            if(richtung != hoch){
+          richtung = runter;
+            }
         }
       }
 
