@@ -1,6 +1,6 @@
 public class Counter {
 
-  static int punktzahl = -1;
+  static int punktzahl = 0;
   static ZEICHENFENSTER zf2;
 
   public Counter() {

@@ -10,9 +10,7 @@ public class Äpfel {
     spawn();
   }
 
-  public static void spawn() {
-
-    Counter.punktZahlErhöhen();
+  public void spawn() {
     Random zufally = new Random();
     int zufallsZahly = zufally.nextInt(Spielfeld.höhe - DURCHMESSER);
     yposition = zufallsZahly;
@@ -22,10 +20,16 @@ public class Äpfel {
     Spielfeld.zf.fuelleKreis(zufallsZahlx, zufallsZahly, 10, "rot");
   }
 
-  public static void gegessenWerden() {
+  public  static void gegessenWerden() {
 
+    Counter.punktZahlErhöhen();
     Spielfeld.zf.fuelleKreis(xposition, yposition, DURCHMESSER, "weiss");
-    spawn();
+    Äpfel äpfel = new Äpfel();
+
+
+
+
 
   }
 }
+
