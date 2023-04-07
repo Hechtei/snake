@@ -27,16 +27,16 @@ public class Schlange  {
         && xposition + DURCHMESSER * 2 < Spielfeld.breite) {
       Spielfeld.zf.fuelleKreis(xposition, yposition, DURCHMESSER, "weiss");
       switch (Spielfeld.zf.richtung) {
-        case rechts :
+        case "rechts" :
           xposition += SCHRITTDURCHMESSER;
           break;
-        case links:
+        case "links":
           xposition -= SCHRITTDURCHMESSER;
           break;
-        case hoch:
+        case "hoch":
           yposition -= SCHRITTDURCHMESSER;
           break;
-        case runter:
+        case "runter":
           yposition += SCHRITTDURCHMESSER;
           break;
         default:

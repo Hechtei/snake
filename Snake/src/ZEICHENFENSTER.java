@@ -18,13 +18,13 @@ public class ZEICHENFENSTER {
   private static ZEICHENFENSTER singleton;
   public String richtung = "keine";
   
-  public final  String rechts = "rechts";
+  public final static String rechts = "rechts";
   
-  public final  String links = "links";
+  public final static String links = "links";
   
-  public final String hoch = "hoch";
+  public final static String hoch = "hoch";
   
-  public final String runter ="runter";
+  public final static String runter ="runter";
   
   public JFrame frame;
   private CanvasPane canvas;
