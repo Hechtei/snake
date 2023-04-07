@@ -14,13 +14,13 @@ public class Schlange {
         bewegen();
     }
 
-    private static void sleep(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException ignored) {
-
-        }
+  private static void sleep(long millis) {
+    try {
+      Thread.sleep(millis);
+    } catch (InterruptedException e) {
+      System.out.println(e);
     }
+  }
 
     public void bewegen() {
         while (yposition > 15 && xposition - 15 > 0 && yposition + DURCHMESSER * 2 + 24 < Spielfeld.höhe
