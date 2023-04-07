@@ -1,6 +1,6 @@
 import javax.imageio.plugins.tiff.ExifGPSTagSet;
 
-public class Schlange extends  ZEICHENFENSTER {
+public class Schlange  {
 
   final int SCHRITTDURCHMESSER = 1;
   final int SCHRITTGESCHWINDIGKEIT = 6;
@@ -53,24 +53,24 @@ public class Schlange extends  ZEICHENFENSTER {
   }
 
   public void fressenSuchen() {
-    if (Spielfeld.zf.richtung == links) {
+    if (Spielfeld.zf.richtung == Spielfeld.zf.links) {
       if (Äpfel.xposition + Äpfel.DURCHMESSER == xposition && Math.abs(Äpfel.yposition - yposition)
           < (DURCHMESSER * 2 - Äpfel.DURCHMESSER) + APFELHITBOX) {
         Äpfel.gegessenWerden();
       }
 
-    } else if (Spielfeld.zf.richtung == rechts) {
+    } else if (Spielfeld.zf.richtung == Spielfeld.zf.rechts) {
       if (Math.abs(Äpfel.xposition - xposition) < (DURCHMESSER * 2)
           && Math.abs(Äpfel.yposition - yposition)
           < (DURCHMESSER * 2 - Äpfel.DURCHMESSER) + APFELHITBOX) {
         Äpfel.gegessenWerden();
       }
-    } else if (Spielfeld.zf.richtung == runter) {
+    } else if (Spielfeld.zf.richtung == Spielfeld.zf.runter) {
       if (Math.abs(Äpfel.xposition - xposition) < (DURCHMESSER * 2)
           && Math.abs(Äpfel.yposition - yposition) < (DURCHMESSER * 2)) {
         Äpfel.gegessenWerden();
       }
-    } else if (Spielfeld.zf.richtung == hoch) {
+    } else if (Spielfeld.zf.richtung == Spielfeld.zf.hoch) {
       if (Math.abs(Äpfel.yposition - yposition) < Äpfel.DURCHMESSER
           && Math.abs(Äpfel.xposition - xposition) < (DURCHMESSER * 2)) {
         Äpfel.gegessenWerden();

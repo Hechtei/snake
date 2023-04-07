@@ -18,9 +18,9 @@ public class ZEICHENFENSTER {
   private static ZEICHENFENSTER singleton;
   public String richtung = "keine";
   
-  public final String rechts = "rechts";
+  public final  String rechts = "rechts";
   
-  public final String links = "links";
+  public final  String links = "links";
   
   public final String hoch = "hoch";
   
