@@ -161,35 +161,6 @@ public class ZEICHENFENSTER {
   }
 
   /**
-   * Zeichnet einen Elipsenbogen (Siehe Graphics.drawArc)
-   *
-   * @param x           x-Koordinate des Elipsenmittelpunkts
-   * @param y           y-Koordinate des Elipsenmittelpunkts
-   * @param halbachseX  Halbachse der Elipse in x-Richtung
-   * @param halbachseY  Halbachse der Elipse in y-Richtung
-   * @param startWinkel Polarwinkel, an dem der Bogen anf�ngt
-   * @param winkel      Polarwinkel, welchen der Bogen durchl�uft
-   */
-  public void zeichneBogen(int x, int y, int halbachseX, int halbachseY, int startWinkel,
-      int winkel) {
-    graphic.drawArc(x - halbachseX, y - halbachseY, 2 * halbachseX, 2 * halbachseY, startWinkel,
-        winkel);
-    canvas.repaint();
-  }
-
-  /**
-   * Zeichnet einen Kreis (Siehe Graphics.drawOval)
-   *
-   * @param x      x-Koordinate des Mittelpunkts
-   * @param y      y-Koordinate des Mittelpunkts
-   * @param radius Kreisradius
-   */
-  public void zeichneKreis(int x, int y, int radius) {
-    graphic.drawOval(x - radius, y - radius, 2 * radius, 2 * radius);
-    canvas.repaint();
-  }
-
-  /**
    * F�llt das Innere eines Kreises mit der angegebenen Farbe.
    *
    * @param x      x-Koordinate des Mittelpunkts
@@ -207,22 +178,6 @@ public class ZEICHENFENSTER {
   }
 
   /**
-   * F�llt das Innere eines Kreises mit der angegebenen Farbe.
-   *
-   * @param x      x-Koordinate des Mittelpunkts
-   * @param y      y-Koordinate des Mittelpunkts
-   * @param radius Kreisradius
-   * @param farbnr F�llfarbnummer f�r den Kreis (0 bis 8)
-   */
-  public void fuelleKreis(int x, int y, int radius, int farbnr) {
-    Color original = graphic.getColor();
-    graphic.setColor(farbeZuColor(farbnr));
-    graphic.fillOval(x - radius, y - radius, 2 * radius, 2 * radius);
-    canvas.repaint();
-    graphic.setColor(original);
-  }
-
-  /**
    * L�scht das Innere eines Kreises
    *
    * @param x      x-Koordinate des Mittelpunkts
@@ -232,45 +187,6 @@ public class ZEICHENFENSTER {
   public void loescheKreis(int x, int y, int radius) {
     Ellipse2D.Double circle = new Ellipse2D.Double(x - radius, y - radius, 2 * radius, 2 * radius);
     loesche(circle);
-  }
-
-  /**
-   * Zeichnet den Umriss eines Shape-Objekts.
-   *
-   * @param shape das Shape-Object, welches gezeichnet werden soll
-   */
-  public void zeichne(Shape shape) {
-    graphic.draw(shape);
-    canvas.repaint();
-  }
-
-  /**
-   * F�llt das Innere eines Shape-Objekts mit der angegebenen Farbe.
-   *
-   * @param shape das Shape-Objekt, welches gef�llt werden soll
-   * @param farbe F�llfarbe f�r das Shape-Objekt, erlaubt sind "weiss" "schwarz" "rot" "gruen"
-   *              "blau" "gelb" "magenta" "cyan" "grau"
-   */
-  public void fuelle(Shape shape, String farbe) {
-    Color original = graphic.getColor();
-    graphic.setColor(farbeZuColor(farbe));
-    graphic.fill(shape);
-    canvas.repaint();
-    graphic.setColor(original);
-  }
-
-  /**
-   * F�llt das Innere eines Shape-Objekts mit der angegebenen Farbe.
-   *
-   * @param shape  das Shape-Objekt, welches gef�llt werden soll
-   * @param farbnr F�llfarbnummer f�r das Shape-Objekt (0 bis 8)
-   */
-  public void fuelle(Shape shape, int farbnr) {
-    Color original = graphic.getColor();
-    graphic.setColor(farbeZuColor(farbnr));
-    graphic.fill(shape);
-    canvas.repaint();
-    graphic.setColor(original);
   }
 
   /**

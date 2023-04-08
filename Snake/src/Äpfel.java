@@ -3,8 +3,8 @@ import java.util.Random;
 public class Äpfel {
 
   final static int DURCHMESSER = 20;
-  static int xposition;
-  static int yposition;
+  static int xpositionApfel;
+  static int ypositionApfel;
 
   public Äpfel() {
     spawn();
@@ -13,17 +13,17 @@ public class Äpfel {
   public void spawn() {
     Random zufally = new Random();
     int zufallsZahly = zufally.nextInt(Spielfeld.höhe - DURCHMESSER);
-    yposition = zufallsZahly;
+    ypositionApfel = zufallsZahly;
     Random zufallx = new Random();
     int zufallsZahlx = zufallx.nextInt(Spielfeld.breite - DURCHMESSER + 15);
-    xposition = zufallsZahlx;
+    xpositionApfel = zufallsZahlx;
     Spielfeld.zf.fuelleKreis(zufallsZahlx, zufallsZahly, 10, "rot");
   }
 
   public  static void gegessenWerden() {
 
     Counter.punktZahlErhöhen();
-    Spielfeld.zf.fuelleKreis(xposition, yposition, DURCHMESSER, "weiss");
+    Spielfeld.zf.fuelleKreis(xpositionApfel, ypositionApfel, DURCHMESSER, "weiss");
     Äpfel äpfel = new Äpfel();
 
 
