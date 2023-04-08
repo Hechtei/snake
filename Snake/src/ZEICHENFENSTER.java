@@ -17,15 +17,15 @@ public class ZEICHENFENSTER {
 
   private static ZEICHENFENSTER singleton;
   public String richtung = "keine";
-  
+
   public final static String rechts = "rechts";
-  
+
   public final static String links = "links";
-  
+
   public final static String hoch = "hoch";
-  
+
   public final static String runter ="runter";
-  
+
   public JFrame frame;
   private CanvasPane canvas;
   private JPanel steuerungOst, steuerungSued;
@@ -34,28 +34,14 @@ public class ZEICHENFENSTER {
   private Image canvasImage;
 
   /**
-   * Erzeugt eine Zeichenfenster mit Standardma�en 600*500 und Hintergrundfarbe wei�
-   *
-   * @param titel Titel des Fensters
-   */
-
-  public ZEICHENFENSTER(String titel) {
-    this(titel, 600, 500, Color.white);
-
-  }
-
-
-  /**
    * Erzeugt ein Zeichenfenster mit wei�em Hintergrund.
    *
    * @param titel  Fensterueberschirft
    * @param breite Breite des Fensters
    * @param hoehe  Hoehe des Fensters
    */
-  public ZEICHENFENSTER(String titel, int breite, int hoehe) {
+  public ZEICHENFENSTER(String titel, int breite, int hoehe, State state) {
     this(titel, breite, hoehe, Color.white);
-
-
   }
 
 
@@ -119,7 +105,7 @@ public class ZEICHENFENSTER {
 
   public static ZEICHENFENSTER gibFenster() {
     if (singleton == null) {
-      singleton = new ZEICHENFENSTER("Das Zeichenfenster");
+      singleton = new ZEICHENFENSTER("Das Zeichenfenster", 600, 500, Color.white);
     }
     singleton.zeige();
     return singleton;
@@ -170,11 +156,13 @@ public class ZEICHENFENSTER {
    *               "gelb" "magenta" "cyan" "grau"
    */
   public void fuelleKreis(int x, int y, int radius, String farbe) {
-    Color original = graphic.getColor();
-    graphic.setColor(farbeZuColor(farbe));
-    graphic.fillOval(x - radius, y - radius, 2 * radius, 2 * radius);
-    canvas.repaint();
-    graphic.setColor(original);
+    if(graphic != null) {
+      Color original = graphic.getColor();
+      graphic.setColor(farbeZuColor(farbe));
+      graphic.fillOval(x - radius, y - radius, 2 * radius, 2 * radius);
+      canvas.repaint();
+      graphic.setColor(original);
+    }
   }
 
   /**
